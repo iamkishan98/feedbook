@@ -1,0 +1,43 @@
+{
+  "name": "feedbook",
+  "version": "1.0.0",
+  "description": "A story feed platform",
+  "main": "app.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node app",
+    "dev": "cross-env NODE_ENV=development nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamkishan98/feedbook.git"
+  },
+  "keywords": [
+    "node.js",
+    "passport",
+    "gauth2.0"
+  ],
+  "author": "Gopikishan Thawre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamkishan98/feedbook/issues"
+  },
+  "homepage": "https://github.com/iamkishan98/feedbook#readme",
+  "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.1",
+    "mongoose": "^6.1.6",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.2",
+    "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
