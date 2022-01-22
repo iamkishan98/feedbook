@@ -1,0 +1,13 @@
+body{
+    background: #C2CAD0;
+}
+
+.login-container
+{
+    width: 400px;
+    margin-top: 50px;
+    text-align: center;
+}
+.card{
+    height: 400px;
+}
