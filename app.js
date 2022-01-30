@@ -17,6 +17,10 @@ require('./config/passport')(passport);
 
 const app = express();
 
+//Body parser middleware which converts request's objects into json body
+app.use(express.urlencoded({ extended: false}));
+app.use(express.json());
+
 app.engine('.hbs', exphbs.engine({
     defaultLayout: 'main',
     extname: '.hbs'
@@ -65,6 +69,8 @@ app.use('/', Login);
 
 // Redirecting to authentication with google
 app.use('/auth', require('./routes/auth'));
+// Redirecting to story routes
+app.use('/stories', require('./routes/stories'));
 
 
 app.listen(PORT, ()=>{

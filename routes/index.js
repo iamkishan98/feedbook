@@ -16,15 +16,15 @@ router.get('/', ensureGuest ,(req,res)=>{
 router.get('/dashboard', ensureAuth , async (req,res)=>{
     console.log(req.user);
     try{
-        const story = await Stories.findOne({googleId: req.user.id}).lean();
-        res.render('Dashboard', { 
+        const story = await Stories.findOne({user: req.user.id}).lean();
+        res.render('Dashboard',{ 
             name : req.user.firstName,
             story
         });
     }
     catch(err){
         console.log(err.data);
-        res.render('/');
+        res.render('error/500');
     }
     
 });
