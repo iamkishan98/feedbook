@@ -14,12 +14,13 @@ router.get('/', ensureGuest ,(req,res)=>{
 });
 
 router.get('/dashboard', ensureAuth , async (req,res)=>{
-    console.log(req.user);
+    console.log(req.user.id);
     try{
-        const story = await Stories.findOne({user: req.user.id}).lean();
+        const story = await Stories.find({user: req.user.id}).lean();
+        console.log(story);
         res.render('Dashboard',{ 
             name : req.user.firstName,
-            story
+            stories : story
         });
     }
     catch(err){

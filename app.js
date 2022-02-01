@@ -8,6 +8,7 @@ const path = require('path');
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore= require('connect-mongo');
+const {truncate, stripTags, editIcon} = require('./helpers/hbs')
 
 //Load configurations
 dotenv.config({ path: "./config/config.env"});
@@ -22,6 +23,11 @@ app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 
 app.engine('.hbs', exphbs.engine({
+    helpers : {
+        truncate,
+        stripTags,
+        editIcon
+    },
     defaultLayout: 'main',
     extname: '.hbs'
 }));
@@ -59,6 +65,9 @@ if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'));
 
 }
+
+
+
 
 const PORT = process.env.PORT || 5000;
 
