@@ -26,5 +26,5 @@ module.exports = {
         } else {
           return ''
         }
-    },
+    }
 }
