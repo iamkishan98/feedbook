@@ -56,4 +56,36 @@ router.get('/', ensureAuth , async(req,res)=>{
 
 });
 
+// @desc Retrieve full story by Id of the story
+// @route GET /stories/:id
+router.get('/:id', ensureAuth , async (req,res)=>{
+    console.log(req.params.id);
+    console.log(req.user.id);
+    try{
+        const story = await Story.findById(req.params.id).lean();
+        res.json(story);
+        if(!story){
+            console.log("Not found any story");
+            res.render('error/404');
+        }
+
+        if(story.user._id != req.user.id && story.status == 'private'){
+            console.log("User can't access this story");
+            res.render('error/404');
+        }
+        else{
+            console.log(story);
+            /* res.render('stories/show',{
+                story
+            });
+            */
+        }
+
+    }
+    catch(err){
+        console.log(err.data);
+        res.render('error/500');
+    }
+});
+
 module.exports = router;
