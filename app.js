@@ -8,7 +8,7 @@ const path = require('path');
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore= require('connect-mongo');
-const {truncate, stripTags, editIcon} = require('./helpers/hbs')
+const {truncate, stripTags, editIcon, select} = require('./helpers/hbs')
 
 //Load configurations
 dotenv.config({ path: "./config/config.env"});
@@ -26,7 +26,8 @@ app.engine('.hbs', exphbs.engine({
     helpers : {
         truncate,
         stripTags,
-        editIcon
+        editIcon,
+        select
     },
     defaultLayout: 'main',
     extname: '.hbs'

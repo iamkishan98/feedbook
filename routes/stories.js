@@ -75,11 +75,11 @@ router.get('/:id', ensureAuth , async (req,res)=>{
         }
         else{
             console.log(story);
-            res.json(story);
-            /* res.render('stories/show',{
+            //res.json(story);
+            res.render('stories/show',{
                 story
             });
-            */
+            
         }
 
     }
